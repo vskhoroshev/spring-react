@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/spring_react
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  config:
+    import: optional:configserver:${app.config.url:}
+  cloud:
+    config:
+      label: ${app.config.label:}
+
+eureka:
+  client:
+    enabled: false
+#    service-url:
+#      defaultZone: ${app.discovery.url:}
+#    healthcheck:
+#      enabled: true
+#  instance:
+#    instance-id: ${spring.application.name}:${random.uuid}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# logging.level.org.hibernate.SQL=debug
+# logging.level.org.hibernate.type.descriptor.sql.BasicBinder=trace

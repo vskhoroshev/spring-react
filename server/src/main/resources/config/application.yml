@@ -1,0 +1,8 @@
+server:
+  port: ${app.port:0}
+
+spring:
+  application:
+    name: spring-react-server
+  profiles:
+    active: ${app.profiles:}
